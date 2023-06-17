@@ -8,9 +8,9 @@ async-asgi-testclient = "*"
 async_generator = "*"
 asyncmock = "*"
 bandit = "*"
-black = "==19.10b0"
+black = "*"
 coveralls = "*"
-importlib-metadata = {version = "*",markers = "python_version<'3.8'"}
+importlib-metadata = "*"
 invoke = "*"
 isort = "*"
 pylint = "*"
@@ -25,10 +25,10 @@ aiofiles = "*"
 aiohttp = "*"
 asyncache = "*"
 cachetools = "*"
-dataclasses = {version = "*",markers = "python_version<'3.7'"}
+dataclasses = "*"
 fastapi = "*"
 gunicorn = "*"
-idna_ssl = {version = "*",markers = "python_version<'3.7'"}
+idna_ssl = "*"
 pydantic = {extras = ["dotenv"],version = "*"}
 python-dateutil = "*"
 requests = "*"
@@ -37,7 +37,7 @@ sentry-sdk = "*"
 uvicorn = {extras = ["standard"],version = "*"}
 
 [requires]
-python_version = "3.8"
+python_version = "3.11"
 
 [scripts]
 dev = "uvicorn app.main:APP --reload  --log-level=debug"
