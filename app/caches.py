@@ -11,12 +11,13 @@ LOGGER = logging.getLogger(name="app.caches")
 
 SETTINGS = get_settings()
 
+REDIS_URL = None
 if SETTINGS.rediscloud_url:
     REDIS_URL = SETTINGS.rediscloud_url
     LOGGER.info("Using Rediscloud")
-else:
-    REDIS_URL = SETTINGS.local_redis_url
-    LOGGER.info("Using Local Redis")
+# else:
+#     REDIS_URL = SETTINGS.local_redis_url
+#     LOGGER.info("Using Local Redis")
 
 
 @functools.lru_cache()
