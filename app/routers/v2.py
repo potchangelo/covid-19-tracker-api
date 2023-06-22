@@ -22,7 +22,7 @@ class Sources(str, enum.Enum):
 
 @V2.get("/latest", response_model=LatestResponse)
 async def get_latest(
-    request: Request, source: Sources = Sources.JHU
+    request: Request, source: Sources = Sources.LOCALJSON
 ):  # pylint: disable=unused-argument
     """
     Getting latest amount of total confirmed cases, deaths, and recoveries.
@@ -93,7 +93,7 @@ async def get_locations(
 # pylint: disable=invalid-name
 @V2.get("/locations/{id}", response_model=LocationResponse)
 async def get_location_by_id(
-    request: Request, id: int, source: Sources = Sources.JHU, timelines: bool = True
+    request: Request, id: int, source: Sources = Sources.LOCALJSON, timelines: bool = True
 ):
     """
     Getting specific location by id.
