@@ -110,7 +110,7 @@ async def handle_validation_error(
 
 
 # Include routers.
-APP.include_router(V1, prefix="", tags=["v1"])
+# APP.include_router(V1, prefix="", tags=["v1"])
 APP.include_router(V2, prefix="/v2", tags=["v2"])
 
 
