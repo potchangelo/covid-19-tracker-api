@@ -14,6 +14,7 @@ class Sources(str, enum.Enum):
     A source available for retrieving data.
     """
 
+    LOCALJSON = "localjson"
     JHU = "jhu"
     CSBS = "csbs"
     NYT = "nyt"
@@ -40,11 +41,10 @@ async def get_latest(
 @V2.get("/locations", response_model=LocationsResponse, response_model_exclude_unset=True)
 async def get_locations(
     request: Request,
-    source: Sources = "jhu",
+    source: Sources = Sources.LOCALJSON,
     country_code: str = None,
     province: str = None,
     county: str = None,
-    timelines: bool = False,
 ):
     """
     Getting the locations.
@@ -86,7 +86,7 @@ async def get_locations(
             "deaths": sum(map(lambda location: location.deaths, locations)),
             "recovered": sum(map(lambda location: location.recovered, locations)),
         },
-        "locations": [location.serialize(timelines) for location in locations],
+        "locations": [location.serialize() for location in locations],
     }
 
 
